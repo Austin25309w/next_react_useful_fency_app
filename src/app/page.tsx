@@ -1,8 +1,8 @@
 import Link from 'next/link'
-// import { prisma } from '@/db'
+import { prisma } from '@/db'
 
 export default async function Home(){
-  // const todos = await prisma.todo.findMany()
+  const todos = await prisma.todo.findMany()
 
   return (
     <>
@@ -14,10 +14,13 @@ export default async function Home(){
           New
         </Link>
       </header>
-      {/* <ul className = "pl-4">{todos.map(todo=>(
+      <ul className = "pl-4">{todos.map(todo=>(
         <li key={todo.id}>{todo.title}</li>
       ))}
-      </ul> */}
+      </ul>
     </>
   )
 }
+
+
+//npm install prisma --save-dev
